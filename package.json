@@ -1,0 +1,12 @@
+{
+  "name": "hana-store",
+  "version": "0.0.0",
+  "author": "hwanfront",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "common": "pnpm --filter \"@hana-store/*\"",
+    "client": "pnpm --filter client"
+  },
+  "packageManager": "pnpm@8.15.3"
+}

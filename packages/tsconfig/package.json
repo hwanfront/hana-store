@@ -1,0 +1,11 @@
+{
+  "name": "@hana-store/tsconfig",
+  "exports": {
+    "./base": "./base.json",
+    "./nextjs": "./nextjs.json",
+    "./react": "./react.json"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

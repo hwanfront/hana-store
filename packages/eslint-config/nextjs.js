@@ -16,7 +16,7 @@ module.exports = {
     'no-unused-vars': 'error',
     'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
     'no-restricted-imports': ['error', { patterns: ['../'] } ],
-		'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-imports': 'error',
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],

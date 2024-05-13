@@ -19,11 +19,13 @@
   },
   "devDependencies": {
     "@hana-store/common": "workspace:^",
+    "@hana-store/prettier": "workspace:^",
     "@hana-store/tsconfig": "workspace:^",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^9.2.0",
+    "prettier": "^3.2.5",
     "typescript": "^5"
   }
 }

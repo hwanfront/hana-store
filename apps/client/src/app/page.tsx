@@ -1,11 +1,14 @@
-import Link from "next/link";
+import Link from 'next/link';
+
+import Title from '@/component/Title';
 
 export default function Home() {
   return (
     <main>
       <h1>main</h1>
       <p>home</p>
-      <Link href="login">login</Link>
+      <Title />
+      <Link href='login'>login</Link>
     </main>
   );
 }

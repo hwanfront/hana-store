@@ -1,0 +1,7 @@
+{
+  "name": "@hana-store/prettier",
+  "main": "index.js",
+  "peerDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

@@ -18,7 +18,6 @@
   "devDependencies": {
     "@hana-store/common": "workspace:^",
     "@hana-store/eslint-config": "workspace:^",
-    "@hana-store/prettier": "workspace:^",
     "@hana-store/tsconfig": "workspace:^",
     "@hana-store/ui": "workspace:^",
     "@types/node": "^20",

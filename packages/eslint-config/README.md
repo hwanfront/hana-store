@@ -3,12 +3,15 @@
 ```
 pnpm add -D @hana-store/eslint-config@"workspace:^"
 ```
+## Config
+- @hana-store/eslint-config/nextjs
+- @hana-store/eslint-config/react
 ## Usage
 - .eslintrc.json
 ```json
 {
   "root": true,
-  "extends": ["@hana-store/eslint-config-client"]
+  "extends": ["@hana-store/eslint-config/nextjs"]
 }
 ```
 - .eslintrc.js or .eslintrc.cjs
@@ -17,6 +20,6 @@ pnpm add -D @hana-store/eslint-config@"workspace:^"
 
 module.exports = {
   "root": true,
-  extends: ['@hana-store/eslint-config-client']
+  extends: ['@hana-store/eslint-config/nextjs']
 }
 ```

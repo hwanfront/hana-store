@@ -2,7 +2,9 @@
   "extends": "@hana-store/tsconfig/nextjs",
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@ui": ["../../packages/ui"],
+      "@ui/*": ["../../packages/ui/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

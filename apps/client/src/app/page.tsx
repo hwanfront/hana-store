@@ -1,3 +1,4 @@
+import { Button } from '@ui';
 import Link from 'next/link';
 
 import Title from '@/component/Title';
@@ -9,6 +10,7 @@ export default function Home() {
       <p>home</p>
       <Title />
       <Link href='login'>login</Link>
+      <Button>test</Button>
     </main>
   );
 }

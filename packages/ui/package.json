@@ -1,31 +1,31 @@
 {
-  "name": "@hana-store/client",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@hana-store/ui",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
     "lint": "eslint . --ext ts,tsx",
-    "lint:next": "next lint"
+    "prettier": "prettier --config .prettierrc.js --check './src/**/*.{ts,tsx}'",
+    "prettier:format": "prettier --config .prettierrc.js './src/**/*.{ts,tsx}' --write"
   },
   "dependencies": {
-    "next": "^14",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.77.0"
   },
   "devDependencies": {
-    "@hana-store/common": "workspace:^",
     "@hana-store/eslint-config": "workspace:^",
     "@hana-store/prettier": "workspace:^",
     "@hana-store/tsconfig": "workspace:^",
-    "@hana-store/ui": "workspace:^",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "prettier": "^3.2.5",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

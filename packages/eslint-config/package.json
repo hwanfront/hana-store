@@ -3,6 +3,9 @@
   "exports": {
     "./nextjs": {
       "require": "./nextjs.js"
+    },
+    "./react": {
+      "require": "./react.js"
     }
   },
   "dependencies": {

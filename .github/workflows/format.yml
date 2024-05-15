@@ -1,0 +1,13 @@
+name: format
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  format:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: ./.github/workflows/main.yml
+      - name: format
+        run: pnpm run prettier

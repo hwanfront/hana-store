@@ -23,9 +23,5 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install -D --frozen-lockfile
-  format:
-    needs: setup
-    runs-on: ubuntu-22.04
-    steps:
-      - name: format
+      - name: Run prettier
         run: pnpm run prettier

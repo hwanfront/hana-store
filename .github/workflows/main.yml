@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  install:
+  setup:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
@@ -23,3 +23,11 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install -D --frozen-lockfile
+  format:
+    needs: setup
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/workflows/main.yml
+      - name: format
+        run: pnpm run prettier

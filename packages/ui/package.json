@@ -2,9 +2,7 @@
   "name": "@hana-store/ui",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext ts,tsx",
-    "prettier": "prettier --config .prettierrc.js --check './src/**/*.{ts,tsx}'",
-    "prettier:format": "prettier --config .prettierrc.js './src/**/*.{ts,tsx}' --write"
+    "lint": "eslint . --ext ts,tsx"
   },
   "dependencies": {
     "react": "^18",
@@ -13,18 +11,12 @@
   },
   "devDependencies": {
     "@hana-store/eslint-config": "workspace:^",
-    "@hana-store/prettier": "workspace:^",
     "@hana-store/tsconfig": "workspace:^",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
+    "prettier": "^3.2.5",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   }
 }

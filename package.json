@@ -6,7 +6,14 @@
   "license": "MIT",
   "scripts": {
     "common": "pnpm --filter \"@hana-store/*\"",
-    "client": "pnpm --filter client"
+    "client": "pnpm --filter @hana-store/client",
+    "pre-commit": "pnpm run --filter \"@hana-store/*\" pre-commit",
+    "prepare": "husky"
   },
-  "packageManager": "pnpm@8.15.3"
+  "packageManager": "pnpm@8.15.3",
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
+  }
 }

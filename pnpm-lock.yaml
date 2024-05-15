@@ -39,9 +39,6 @@ importers:
       '@hana-store/eslint-config':
         specifier: workspace:^
         version: link:../../packages/eslint-config
-      '@hana-store/prettier':
-        specifier: workspace:^
-        version: link:../../packages/prettier
       '@hana-store/tsconfig':
         specifier: workspace:^
         version: link:../../packages/tsconfig
@@ -119,12 +116,6 @@ importers:
         specifier: ^8.56.10
         version: 8.56.10
 
-  packages/prettier:
-    dependencies:
-      prettier:
-        specifier: ^3.2.5
-        version: 3.2.5
-
   packages/tsconfig:
     dependencies:
       typescript:
@@ -146,9 +137,6 @@ importers:
       '@hana-store/eslint-config':
         specifier: workspace:^
         version: link:../eslint-config
-      '@hana-store/prettier':
-        specifier: workspace:^
-        version: link:../prettier
       '@hana-store/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
@@ -164,6 +152,9 @@ importers:
       eslint:
         specifier: ^8
         version: 8.57.0
+      prettier:
+        specifier: ^3.2.5
+        version: 3.2.5
       typescript:
         specifier: ^5
         version: 5.4.5
@@ -2523,6 +2514,7 @@ packages:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
 
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

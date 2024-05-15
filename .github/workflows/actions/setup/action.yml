@@ -1,4 +1,4 @@
-name: pnpm setup
+name: setup
 
 on:
   push:

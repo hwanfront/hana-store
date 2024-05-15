@@ -2,11 +2,10 @@ name: pnpm setup
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
@@ -22,5 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+  build:
+    runs-on: ubuntu-22.04
+    needs: [install]
+    steps:
       - name: Install dependencies
         run: pnpm install -D --frozen-lockfile

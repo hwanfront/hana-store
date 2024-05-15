@@ -12,7 +12,7 @@
     "pre-commit": "pnpm run --filter \"@hana-store/*\" pre-commit",
     "prepare": "husky"
   },
-  "packageManager": "pnpm@8.15.3",
+  "packageManager": "pnpm@9.1.1",
   "devDependencies": {
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",

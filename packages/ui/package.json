@@ -2,7 +2,8 @@
   "name": "@hana-store/ui",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext ts,tsx"
+    "lint": "eslint . --ext ts,tsx",
+    "lint:changed": "eslint $(git diff --name-only --diff-filter=d origin/main | grep -E \"^(packages/ui/).+(.ts$|.tsx$)\" | sed 's#packages/ui/##g')"
   },
   "dependencies": {
     "react": "^18",

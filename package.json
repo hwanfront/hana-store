@@ -11,7 +11,7 @@
     "prettier": "prettier --config .prettierrc.js --check './**/*.{js,jsx,ts,tsx}'",
     "prettier:format": "prettier --config .prettierrc.js './**/*.{js,jsx,ts,tsx}' --write",
     "pre-commit": "pnpm run --filter \"@hana-store/*\" pre-commit",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "packageManager": "pnpm@9.1.1",
   "devDependencies": {

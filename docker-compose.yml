@@ -4,6 +4,4 @@ services:
     build: 
       context: ./
       dockerfile: apps/client/Dockerfile
-    ports:
-      - "3000:3000"
-    stdin_open: true
+  

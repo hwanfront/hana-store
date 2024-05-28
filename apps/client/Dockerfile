@@ -7,6 +7,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 ENV HUSKY=0
 ## Install pnpm
 RUN corepack enable
+RUN pnpm install --global pm2
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -35,4 +36,4 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["pnpm", "run", "start"]
+CMD ["pm2-runtime", "start", "pnpm", "--", "run", "start"]

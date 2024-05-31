@@ -19,8 +19,13 @@ services:
       - client-connect
     ports:
       - "80:80"
+      - "443:443"
     environment:
       - TZ=Asia/Seoul
+      - CLIENT_PORT=${CLIENT_PORT}
+      - SSL_CERTIFICATE_PATH=${SSL_CERTIFICATE_PATH}      
+      - SSL_CERTIFICATE_CHAIN=${SSL_CERTIFICATE_CHAIN}
+      - SSL_CERTIFICATE_KEY=${SSL_CERTIFICATE_KEY}      
     depends_on:
       - client
 

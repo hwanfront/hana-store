@@ -10,10 +10,10 @@ client-development-down:
 	
 .PHONY: client-production-build
 client-production-build:
-	docker compose -f docker-compose.yml build
+	docker compose --env-file ./.env.production -f docker-compose.yml build
 .PHONY: client-production-up
 client-production-up:
-	docker compose -f docker-compose.yml up client nginx
+	docker compose --env-file ./.env.production -f docker-compose.yml up client nginx
 .PHONY: client-production-down
 client-production-down:
 	docker compose -f docker-compose.yml down

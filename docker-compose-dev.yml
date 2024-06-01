@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  client:
+    build: 
+      dockerfile: apps/client/Dockerfile.dev
+      target: client
+    volumes:
+      - /usr/src/apps/client/node_modules
+      - ./apps/client:/usr/src/apps/client
+      - ./packages:/usr/src/packages
+    ports:
+      - "3000:3000"
+    stdin_open: true

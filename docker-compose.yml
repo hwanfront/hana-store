@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  client:
+    container_name: client
+    image: hana-store/client
+    build: 
+      context: ./
+      dockerfile: apps/client/Dockerfile
+    networks:
+      - client-connect
+  
+  nginx:
+    container_name: nginx
+    image: hana-store/nginx
+    restart: always
+    build:
+      dockerfile: etc/nginx/Dockerfile
+      args:
+        SSL_CERTIFICATE_CHAIN: ${SSL_CERTIFICATE_CHAIN}
+        SSL_CERTIFICATE_KEY: ${SSL_CERTIFICATE_KEY}
+    networks:
+      - client-connect
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ=Asia/Seoul
+      - CLIENT_PORT=${CLIENT_PORT}
+      - SSL_CERTIFICATE_CHAIN=${SSL_CERTIFICATE_CHAIN}
+      - SSL_CERTIFICATE_KEY=${SSL_CERTIFICATE_KEY}      
+    depends_on:
+      - client
+
+networks:
+  client-connect:
+    driver: bridge

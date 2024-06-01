@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+env:
+  HUSKY: 0
 
 jobs:
   setup:
@@ -18,7 +20,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 9.1.1
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:

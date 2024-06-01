@@ -15,6 +15,9 @@ services:
     restart: always
     build:
       dockerfile: etc/nginx/Dockerfile
+      args:
+        SSL_CERTIFICATE_CHAIN: ${SSL_CERTIFICATE_CHAIN}
+        SSL_CERTIFICATE_KEY: ${SSL_CERTIFICATE_KEY}
     networks:
       - client-connect
     ports:
@@ -23,7 +26,6 @@ services:
     environment:
       - TZ=Asia/Seoul
       - CLIENT_PORT=${CLIENT_PORT}
-      - SSL_CERTIFICATE_PATH=${SSL_CERTIFICATE_PATH}      
       - SSL_CERTIFICATE_CHAIN=${SSL_CERTIFICATE_CHAIN}
       - SSL_CERTIFICATE_KEY=${SSL_CERTIFICATE_KEY}      
     depends_on:

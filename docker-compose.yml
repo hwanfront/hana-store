@@ -2,7 +2,7 @@ version: "3.9"
 services:
   client:
     container_name: client
-    image: hana-store/client
+    image: kim015jh/hana-store-client
     build: 
       context: ./
       dockerfile: apps/client/Dockerfile
@@ -11,7 +11,7 @@ services:
   
   nginx:
     container_name: nginx
-    image: hana-store/nginx
+    image: kim015jh/hana-store-nginx
     restart: always
     build:
       dockerfile: etc/nginx/Dockerfile

@@ -1,0 +1,21 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      chosen-os:
+        required: true
+        type: choice
+        options:
+        - Ubuntu
+
+jobs:
+  deployment:
+    runs-on: [self-hosted, X64, "${{ inputs.chosen-os }}"]
+    environment: production
+    steps: 
+      - name: Checkout 
+        uses: actions/checkout@v4
+      - name: Test
+        run: |
+          echo "test"

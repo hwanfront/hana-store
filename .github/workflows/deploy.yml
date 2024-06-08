@@ -7,7 +7,8 @@ on:
         required: true
         type: choice
         options:
-        - Ubuntu
+        - Linux
+        - Windows
 
 jobs:
   deployment:

@@ -1,5 +1,6 @@
 node_modules
 .DS_Store
 /etc/nginx/ssl
+/etc/certbot
 .env
 .env.production

@@ -1,19 +1,28 @@
-.PHONY: client-development-build
-client-development-build:
-	docker compose -f docker-compose-dev.yml build
-.PHONY: client-development-up
-client-development-up:
-	docker compose -f docker-compose-dev.yml up client
-.PHONY: client-development-down
-client-development-down:
-	docker compose -f docker-compose-dev.yml down
-	
 .PHONY: client-production-build
 client-production-build:
-	docker compose --env-file ./.env.production -f docker-compose.yml build
+	docker compose --env-file ./.env.production -f docker-compose.yml build client
+
+.PHONY: client-production-pull
+client-production-pull:
+	docker compose --env-file ./.env.production -f docker-compose.yml pull client
+
 .PHONY: client-production-up
 client-production-up:
-	docker compose --env-file ./.env.production -f docker-compose.yml up client nginx
+	docker compose --env-file ./.env.production -f docker-compose.yml up client nginx -d
+
 .PHONY: client-production-down
 client-production-down:
 	docker compose -f docker-compose.yml down
+
+
+.PHONY: nginx-up
+nginx-up:
+	docker compose --env-file ./.env.production -f docker-compose.yml up nginx -d
+.PHONY: nginx-down
+nginx-down:
+	docker compose -f docker-compose.yml down nginx
+
+
+.PHONY: certbot-run
+certbot-run:
+	docker compose --env-file ./.env.production -f docker-compose.yml run certbot

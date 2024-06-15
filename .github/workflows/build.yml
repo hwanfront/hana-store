@@ -7,6 +7,62 @@ on:
         required: true
         type: choice
         options:
+        - macOS
         - Linux
         - Windows
-        - macOS
+
+jobs:
+  build:
+    runs-on: [self-hosted, X64, "${{ inputs.chosen-os }}"]
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Generate Environment Variables File
+        run: |
+          rm -f .env.production ~/docker_password.txt
+          echo "CLIENT_PORT=$CLIENT_PORT">>.env.production
+          echo "SERVER_DOMAIN_NAME=$SERVER_DOMAIN_NAME">>.env.production
+          echo "SSL_CERTIFICATE_CHAIN=$SSL_CERTIFICATE_CHAIN">>.env.production
+          echo "SSL_CERTIFICATE_KEY=$SSL_CERTIFICATE_KEY">>.env.production
+          echo "$DOCKER_PASSWORD" >> ~/docker_password.txt
+        env:
+          CLIENT_PORT: ${{ secrets.CLIENT_PORT }}
+          SERVER_DOMAIN_NAME: ${{ secrets.SERVER_DOMAIN_NAME }}
+          SSL_CERTIFICATE_CHAIN: ${{ secrets.SSL_CERTIFICATE_CHAIN }}
+          SSL_CERTIFICATE_KEY: ${{ secrets.SSL_CERTIFICATE_KEY }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Login Docker
+        run: cat ~/docker_password.txt | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Docker Build and Push
+        run: |
+          make client-production-build
+          docker-compose push

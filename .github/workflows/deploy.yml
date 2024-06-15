@@ -55,5 +55,5 @@ jobs:
           CONTAINER_ID=$(docker ps -aq -f "name=$CONTAINER_NAME")
           if [ ! -z "$CONTAINER_ID" ]; 
           then
-            docker exec -it $CONTAINER_ID nginx -s reload
+            docker exec -i $CONTAINER_ID nginx -s reload
           fi

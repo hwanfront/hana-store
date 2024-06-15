@@ -3,20 +3,57 @@ name: Deployment
 on:
   workflow_dispatch:
     inputs:
-      chosen-os:
+      nginx_restart:
+        description: 'Nginx Restart (Not Container)'
         required: true
-        type: choice
-        options:
-        - Linux
-        - Windows
+        type: boolean
+        default: false
+      client:
+        description: 'Client Start'
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   deployment:
-    runs-on: [self-hosted, X64, "${{ inputs.chosen-os }}"]
+    runs-on: [self-hosted, X64, Linux]
     environment: production
     steps: 
-      - name: Checkout 
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Test
+
+      - name: Generate Environment Variables File
         run: |
-          echo "test"
+          rm -f .env.production
+          echo "CLIENT_PORT=$CLIENT_PORT" >> .env.production
+          echo "SERVER_DOMAIN_NAME=$SERVER_DOMAIN_NAME" >> .env.production
+          echo "SSL_CERTIFICATE_CHAIN=$SSL_CERTIFICATE_CHAIN" >> .env.production
+          echo "SSL_CERTIFICATE_KEY=$SSL_CERTIFICATE_KEY" >> .env.production
+          echo "CERTBOT_EMAIL=$CERTBOT_EMAIL" >> .env.production
+        env:
+          CLIENT_PORT: ${{ secrets.CLIENT_PORT }}
+          SERVER_DOMAIN_NAME: ${{ secrets.SERVER_DOMAIN_NAME }}
+          SSL_CERTIFICATE_CHAIN: ${{ secrets.SSL_CERTIFICATE_CHAIN }}
+          SSL_CERTIFICATE_KEY: ${{ secrets.SSL_CERTIFICATE_KEY }}
+          CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
+
+      - name: Copy env File
+        run: |
+          cp -rf .env.production Makefile docker-compose.yml ./etc ~/.deploy/${{ github.event.repository.name }}
+      
+      - name: Deploy Client
+        if: ${{ inputs.client }}
+        run: |
+          cd ~/.deploy/${{ github.event.repository.name }}
+          make client-production-pull
+          make client-production-up
+
+      - name: Nginx Restart (Not Container)
+        if: ${{ inputs.nginx_restart }}
+        run: |
+          CONTAINER_NAME=nginx
+          CONTAINER_ID=$(docker ps -aq -f "name=$CONTAINER_NAME")
+          if [ ! -z "$CONTAINER_ID" ]; 
+          then
+            docker exec -it $CONTAINER_ID nginx -s reload
+          fi

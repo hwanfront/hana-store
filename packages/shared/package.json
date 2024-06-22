@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint . --ext ts,tsx",
-    "lint:changed": "eslint $(git diff --name-only --diff-filter=d origin/main | grep -E \"^(packages/ui/).+(.ts$|.tsx$)\" | sed 's#packages/ui/##g')"
+    "lint:changed": "eslint $(git diff --name-only --diff-filter=d origin/main | grep -E \"^(packages/shared/).+(.ts$|.tsx$)\" | sed 's#packages/shared/##g')"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -1,5 +1,0 @@
-{
-  "extends": "@hana-store/tsconfig/react",
-  "include": ["**/*.ts", "**/*.tsx", "./declaration.d.ts"],
-  "exclude": ["node_modules"],
-}

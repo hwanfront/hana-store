@@ -3,7 +3,8 @@
   "exports": {
     "./base": "./base.json",
     "./nextjs": "./nextjs.json",
-    "./react": "./react.json"
+    "./react": "./react.json",
+    "./storybook": "./storybook.json"
   },
   "peerDependencies": {
     "typescript": "^5"

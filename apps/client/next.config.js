@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  transpilePackages: ['@hana-store/ui'],
+  transpilePackages: ['@hana-store/shared'],
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },

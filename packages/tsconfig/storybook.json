@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": ["./nextjs.json", "plugin:storybook/recommended"],
+  "compilerOptions": {
+    "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+  }
+}

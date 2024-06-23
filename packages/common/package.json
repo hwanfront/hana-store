@@ -1,9 +1,0 @@
-{
-  "name": "@hana-store/common",
-  "exports": {
-    "./styles/base.scss": "./styles/base.scss"
-  },
-  "dependencies": {
-    "sass": "^1.72.0"
-  }
-}

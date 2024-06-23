@@ -1,0 +1,38 @@
+:root {
+  --color-bg-main: #{$white};
+  --color-primary-text: rgba(0, 0, 0, 0.90);
+  --color-secondary-text: rgba(0, 0, 0, 0.70);
+  --color-error-text: #{$red-500};
+  --color-warning-text: #{$orange-400};
+  --color-success-text: #{$green-400};
+
+  --color-default-main: rgba(0, 0, 0, 0.90);
+  --color-default-light: #{$gray-100};
+  --color-default-dark: #{$gray-200};
+  --color-default-bg: #{$gray-200};
+
+  --color-primary-main: #{$wiched-green-500};
+  --color-primary-light: #{$wiched-green-400};
+  --color-primary-dark: #{$wiched-green-600};
+  --color-primary-bg: rgba(255,255,255, 0.90);
+  
+  --color-secondary-main: #{$carrot-orange-500};
+  --color-secondary-light: #{$carrot-orange-400};
+  --color-secondary-dark: #{$carrot-orange-600};
+  --color-secondary-bg: rgba(255,255,255, 0.90);
+
+  --color-error-main: #{$red-500};
+  --color-error-light: #{$red-400};
+  --color-error-dark: #{$red-600};
+  --color-error-bg: rgba(255,255,255, 0.90);
+
+  --color-warning-main: #{$orange-400};
+  --color-warning-light: #{$orange-300};
+  --color-warning-dark: #{$orange-500};
+  --color-warning-bg: rgba(255,255,255, 0.90);
+
+  --color-success-main: #{$green-300};
+  --color-success-light: #{$green-200};
+  --color-success-dark: #{$green-400};
+  --color-success-bg: rgba(255,255,255, 0.90);
+}

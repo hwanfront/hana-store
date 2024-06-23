@@ -1,0 +1,11 @@
+{
+  "extends": "@hana-store/tsconfig/storybook",
+  "compilerOptions": {
+    "paths": {
+      "client/*": ["../client/src/*"],
+      "@shared/*": ["../../packages/shared/*"],
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

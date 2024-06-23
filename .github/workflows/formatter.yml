@@ -31,7 +31,7 @@ jobs:
         run: pnpm install
       - name: Run eslint with client
         run: pnpm run client lint:changed
-      - name: Run eslint with ui
-        run: pnpm run ui lint:changed
+      - name: Run eslint with shared
+        run: pnpm run shared lint:changed
       - name: Run prettier
         run: pnpm run prettier
